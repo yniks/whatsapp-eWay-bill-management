@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "lib",
+    "strict": false,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "lib": ["es2019", "esnext.array"]
+  },
+  "include": ["src/*/*.ts"],
+  "exclude": ["node_modules", "src/*/Tests.ts"]
+}

@@ -1,5 +1,5 @@
 const fs = require("fs");
-var { WAClient, MessageType } = require("./wa/lib/WAClient/WAClient");
+var { WAClient, MessageType } = require("@adiwajshing/baileys");
 const { getSession, saveSession } = require("./WA_Session");
 const { default: jsqr } = require("jsqr");
 var client = new WAClient();

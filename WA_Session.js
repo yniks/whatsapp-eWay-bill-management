@@ -1,16 +1,12 @@
-var fs = require("fs");
+var { readFile, writeFile } = require("./filemanager");
 async function saveSession(session) {
-	return new Promise((res, rej) => {
-		fs.writeFile("./WA.auth.json", JSON.stringify(session), "utf8", (err) =>
-			err ? rej(err) : res()
-		);
+	return writeFile({
+		path: "./WA.auth.json",
+		data: JSON.stringify(session),
+		encoding: "utf8",
 	});
 }
 async function getSession() {
-	return new Promise((res, rej) => {
-		fs.readFile("./WA.auth.json", "utf8", (err, data) =>
-			err ? res(null) : res(JSON.parse(data))
-		);
-	});
+	return readFile({ path: "./WA.auth.json", encoding: "utf8" });
 }
 module.exports = { saveSession, getSession };

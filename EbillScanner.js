@@ -80,7 +80,7 @@ HELP:
 			counter++;
 		}
 		await saveFile({
-			path: "./wa-ebills-" + Date.now(),
+			path: "./wa-ebills-" + Date.now() + ".json",
 			data: JSON.stringify(out),
 		});
 		process.exit();

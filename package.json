@@ -15,7 +15,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@adiwajshing/baileys": "file:../fork/Baileys",
+		"@adiwajshing/baileys": "git+https://github.com/yniks/Baileys.git",
 		"jimp": "^0.14.0",
 		"jsqr": "^1.3.1"
 	},

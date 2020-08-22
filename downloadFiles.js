@@ -11,7 +11,10 @@ async function* Download({ username = argReq("username"), as, session, doctype =
 if (require.main == module) {
     var [, , ...arg] = process.argv.map((s) => s.split(":"));
     var arg = Object.fromEntries(arg);
-    if (!arg.tid || (!(mediatypes.includes(MessageType[arg.type])))) {
+    if (!arg.type || (!(mediatypes.includes(arg.type)))) arg.type = mediatypes
+    else arg.type = [arg.type]
+
+    if (!arg.tid) {
         console.log(`
 HELP:
     type:<media type (image|video|audio|document)>
@@ -29,7 +32,7 @@ HELP:
 
     var counter = 0;
     (async function () {
-        for await (var m of Download({ username: arg.tid, session, doctype: [MessageType[arg.type]] })) {
+        for await (var m of Download({ username: arg.tid, session, doctype: arg.type })) {
             counter++;
             console.info('got::' + counter, `file-${counter}.${m.extension}`)
             await saveFile({
